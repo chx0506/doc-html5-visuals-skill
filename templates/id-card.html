@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true"><meta name="html-box-height-mode" content="auto">
+<meta name="description" content="{{一句话：产品/公司身份卡用途}}">
+<title>{{产品名}} 身份卡</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brand:#2f6fed;--hot:#b42318;--ink:#1f2d3d;--ink-2:#334155;--mute:#94a3b8;--line:#e8edf3;--hair:#f0f3f7}
+body{background:#fff;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);padding:8px}
+.card{width:100%;padding:28px 32px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 6px 24px rgba(31,45,61,.06)}
+.head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.logo{width:52px;height:52px;border-radius:13px;flex:none;background:linear-gradient(135deg,#2f6fed,#60a5fa);color:#fff;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.title{font-size:22px;font-weight:700}
+.subtitle{font-size:13px;color:var(--mute);margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+.item{border-top:1px solid var(--hair);padding-top:11px}
+.label{font-size:12px;color:var(--mute);margin-bottom:5px}
+.value{font-size:15px;color:var(--ink-2);line-height:1.45}
+.value b{color:var(--brand)}
+.item.wide{grid-column:1/-1}
+.item.hot .value,.item.hot .value b{color:var(--hot)}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="card">
+  <div class="head">
+    <div class="logo">{{缩写}}</div>
+    <div>
+      <div class="title">{{产品名}}</div>
+      <div class="subtitle">{{品类/定位}} · 身份卡 · {{YYYY-MM}}</div>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="item"><div class="label">{{字段}}</div><div class="value">{{内容，重点用 b}}</div></div>
+    <div class="item"><div class="label">{{字段}}</div><div class="value">{{内容}}</div></div>
+    <div class="item hot"><div class="label">{{爆点/纠偏字段}}</div><div class="value">{{关键结论}}</div></div>
+    <div class="item"><div class="label">{{字段}}</div><div class="value">{{内容}}</div></div>
+    <div class="item wide"><div class="label">官网</div><div class="value">{{URL ｜ 补充信息}}</div></div>
+  </div>
+</div>
+</body></html>

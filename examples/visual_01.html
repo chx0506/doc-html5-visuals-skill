@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true">
+<meta name="html-box-height-mode" content="auto">
+<meta name="description" content="AI 内容/叙事产品五类分层全景：文本写作、角色扮演、互动叙事、AI 剧集/短剧、故事可视化共 11 款（族）产品归类">
+<title>AI 内容/叙事产品分层全景</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--brand:#2f6fed;--brand-2:#60a5fa;--amber:#f59e0b;--green:#10b981;--red:#ef4444;--ink:#1f2d3d;--ink-2:#334155;--mute:#94a3b8;--line:#e8edf3}
+  body{background:#fff;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);padding:16px 12px}
+  .p-title{font-size:19px;font-weight:800;text-align:center;margin-bottom:2px}
+  .p-sub{font-size:12px;color:var(--mute);text-align:center;margin-bottom:18px}
+  .stack{display:flex;flex-direction:column;gap:12px;max-width:1000px;margin:0 auto}
+  .layer{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:linear-gradient(180deg,#fff,#fbfcfe)}
+  .layer-head{display:flex;align-items:baseline;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .badge{font-size:11px;font-weight:700;color:#fff;padding:2px 9px;border-radius:20px}
+  .lname{font-size:15px;font-weight:800}
+  .ldesc{font-size:11.5px;color:var(--mute)}
+  .cells{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .cell{border:1px solid var(--line);border-radius:9px;padding:8px 9px;background:#fff}
+  .cell b{display:block;font-size:12.5px;color:var(--ink);margin-bottom:3px}
+  .cell span{font-size:11px;color:var(--ink-2);line-height:1.45}
+  .l4 .badge{background:var(--green)} .l4{border-left:5px solid var(--green)}
+  .l3 .badge{background:var(--brand)} .l3{border-left:5px solid var(--brand)}
+  .l2 .badge{background:var(--brand-2)} .l2{border-left:5px solid var(--brand-2)}
+  .l1 .badge{background:var(--amber)} .l1{border-left:5px solid var(--amber)}
+  .l0 .badge{background:#64748b} .l0{border-left:5px solid #64748b}
+  @media(max-width:720px){.cells{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+  <div class="p-title">AI 内容/叙事产品分层全景：五类 × 11 款（族）</div>
+  <div class="p-sub">纵轴＝输出模态由"文本"向"视觉/剧集"逐级重媒介化 · 层内＝同品类的代表玩家</div>
+  <div class="stack">
+    <div class="layer l4">
+      <div class="layer-head"><span class="badge">五 · 故事可视化</span><span class="lname">文本 → 漫画 / Storyboard 多模态叙事</span><span class="ldesc">把剧本一键可视化为可用于制作的分镜</span></div>
+      <div class="cells">
+        <div class="cell"><b>Lore Machine</b><span>EXO Unlimited；文本转图像小说/Storyboard</span></div>
+      </div>
+    </div>
+    <div class="layer l3">
+      <div class="layer-head"><span class="badge">四 · AI 剧集 / 短剧</span><span class="lname">视频级叙事生成</span><span class="ldesc">AI 直接产出可观看的剧集/短剧单元</span></div>
+      <div class="cells">
+        <div class="cell"><b>Showrunner</b><span>Fable Simulation；"Netflix of AI"</span></div>
+        <div class="cell"><b>米球岛 Mecoland</b><span>北京极想智能；OC 世界观 + 互动文游</span></div>
+        <div class="cell"><b>ReelCraft</b><span>Yohan Lee；互动分支短剧</span></div>
+      </div>
+    </div>
+    <div class="layer l2">
+      <div class="layer-head"><span class="badge">三 · AI 互动叙事</span><span class="lname">用户驱动的生成式冒险</span><span class="ldesc">文字 TRPG，剧情由玩家与模型共创</span></div>
+      <div class="cells">
+        <div class="cell"><b>AI Dungeon</b><span>Latitude；GPT 驱动的自由冒险/Scenario 社区</span></div>
+      </div>
+    </div>
+    <div class="layer l1">
+      <div class="layer-head"><span class="badge">二 · AI 角色扮演</span><span class="lname">角色 Chat / 陪伴 / 多模态创作</span><span class="ldesc">赛道最密集、流量最大的一层</span></div>
+      <div class="cells">
+        <div class="cell"><b>Character.AI（族）</b><span>主站 + Series / Scenes / Streams / AvatarFX / Reads</span></div>
+        <div class="cell"><b>PolyBuzz（原 Poly.AI）</b><span>2,000 万+ 角色，弱审 c.ai 替代</span></div>
+        <div class="cell"><b>Rolevio</b><span>公开资料未检到的小众 roleplay 候选</span></div>
+      </div>
+    </div>
+    <div class="layer l0">
+      <div class="layer-head"><span class="badge">一 · AI 文本写作</span><span class="lname">小说 / 二次元内容创作底座</span><span class="ldesc">面向作者的创作辅助与模型托管</span></div>
+      <div class="cells">
+        <div class="cell"><b>NovelAI</b><span>Anlatan；文本 + Anime Diffusion 订阅</span></div>
+        <div class="cell"><b>Sudowrite</b><span>James Yu / Amit Gupta；Story Bible 小说助手</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true"><meta name="html-box-height-mode" content="auto">
+<meta name="description" content="11 款 AI 内容/叙事产品 爆款×数据 二维定位散点图：X 轴 UGC 爆款浓度、Y 轴可量化数据能级、气泡大小代表估值/融资量级、颜色区分品类">
+<title>11 款 AI 内容/叙事产品 爆款×数据 二维定位</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#fff;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:6px}#c{width:100%;height:520px}</style>
+</head><body>
+<div id="c"></div>
+<script src="https://unpkg.byted-static.com/echarts/5.5.1/dist/echarts.min.js" integrity="sha384-Mx5lkUEQPM1pOJCwFtUICyX45KNojXbkWdYhkKUKsbv391mavbfoAmONbzkgYPzR" crossorigin="anonymous"></script>
+<script>
+var chart = echarts.init(document.getElementById('c'), null, {renderer:'svg'});
+// 定性评分 0-10：X=UGC 爆款浓度（低→高）, Y=可量化数据能级（低→高）, size=融资/估值量级
+// 分组：文本写作/角色扮演/互动叙事/剧集短剧/故事可视化
+var g1=[ // 文本写作（灰蓝）
+  {value:[6.0, 4.5, 22, 'NovelAI'], label:{position:'top'}},
+  {value:[3.5, 3.0, 16, 'Sudowrite'], label:{position:'top'}}
+];
+var g2=[ // 角色扮演（主蓝）
+  {value:[9.3, 9.0, 60, 'Character.AI'], label:{position:'right'}},
+  {value:[7.0, 2.5, 14, 'c.ai Series'], label:{position:'bottom'}},
+  {value:[7.5, 3.0, 18, 'PolyBuzz'], label:{position:'right'}},
+  {value:[1.0, 1.0, 6,  'Rolevio'], label:{position:'right'}}
+];
+var g3=[ // 互动叙事（绿）
+  {value:[6.5, 5.5, 15, 'AI Dungeon'], label:{position:'right'}}
+];
+var g4=[ // 剧集/短剧（琥珀）
+  {value:[8.0, 5.0, 25, 'Showrunner'], label:{position:'top'}},
+  {value:[3.0, 2.0, 8,  '米球岛 Mecoland'], label:{position:'bottom'}},
+  {value:[4.5, 2.5, 10, 'ReelCraft'], label:{position:'right'}}
+];
+var g5=[ // 故事可视化（红）
+  {value:[4.0, 3.0, 10, 'Lore Machine'], label:{position:'top'}}
+];
+var sizer = function(d){return Math.max(14, d[2]*0.9);};
+var mkSeries = function(name, color, data){
+  return {name:name, type:'scatter', data:data, symbolSize:function(d){return sizer(d);},
+    itemStyle:{color:color, opacity:.75},
+    label:{show:true, formatter:function(p){return p.data[3];}, color:'#1f2d3d', fontSize:11, fontWeight:600}};
+};
+chart.setOption({
+  title:{text:'爆款与数据俱全者仅 Character.AI 主站；多数产品仍在找 PMF',
+    subtext:'X＝UGC 爆款浓度（低→高），Y＝可量化数据能级（低→高），气泡＝估值/融资量级（无数据用最小气泡），颜色＝品类｜定性评估',
+    left:'center', textStyle:{fontSize:15,color:'#1f2d3d'}, subtextStyle:{color:'#94a3b8',fontSize:11}},
+  legend:{bottom:4, data:['AI 文本写作','AI 角色扮演','AI 互动叙事','AI 剧集/短剧','AI 故事可视化']},
+  tooltip:{formatter:function(p){var d=p.data;return d[3]+'<br/>UGC 爆款浓度: '+d[0]+'<br/>可量化数据能级: '+d[1]+'<br/>估值/融资量级(相对): '+d[2];}},
+  grid:{left:70, right:60, top:80, bottom:60},
+  xAxis:{type:'value', name:'UGC 爆款浓度 →', nameLocation:'middle', nameGap:30, min:0, max:10, splitLine:{lineStyle:{type:'dashed',color:'#eef'}}},
+  yAxis:{type:'value', name:'可量化数据能级 ↑', min:0, max:10, splitLine:{lineStyle:{type:'dashed',color:'#eef'}}},
+  series:[
+    mkSeries('AI 文本写作','#64748b', g1),
+    mkSeries('AI 角色扮演','#2f6fed', g2),
+    mkSeries('AI 互动叙事','#10b981', g3),
+    mkSeries('AI 剧集/短剧','#f59e0b', g4),
+    mkSeries('AI 故事可视化','#ef4444', g5)
+  ]
+});
+window.addEventListener('resize',function(){chart.resize();});
+</script></body></html>

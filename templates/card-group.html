@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true"><meta name="html-box-height-mode" content="auto">
+<meta name="description" content="{{一句话：并排对比的对象与目的}}">
+<title>{{卡片组标题}}</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--brand:#2f6fed;--hot:#b42318;--ink:#1f2d3d;--ink-2:#334155;--mute:#94a3b8;--line:#e8edf3;--hair:#f0f3f7}
+body{background:#fff;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);padding:8px}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1200px;margin:0 auto}
+.card{padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 16px rgba(31,45,61,.05)}
+.head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.logo{width:40px;height:40px;border-radius:10px;flex:none;background:linear-gradient(135deg,#2f6fed,#60a5fa);color:#fff;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.title{font-size:17px;font-weight:700}
+.subtitle{font-size:11px;color:var(--mute);margin-top:2px}
+.item{border-top:1px solid var(--hair);padding-top:8px;margin-top:8px}
+.label{font-size:11px;color:var(--mute);margin-bottom:3px}
+.value{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.value b{color:var(--brand)}
+.item.hot .value,.item.hot .value b{color:var(--hot)}
+@media(max-width:900px){.row{grid-template-columns:1fr}}
+/* 2 张：grid-template-columns:repeat(2,1fr)；4 张：repeat(2,1fr) 或 repeat(4,1fr) */
+</style></head><body>
+<div class="row">
+
+<div class="card">
+  <div class="head"><div class="logo">A</div><div><div class="title">{{名称 A}}</div><div class="subtitle">{{定位}} · {{YYYY-MM}}</div></div></div>
+  <div class="item"><div class="label">定位</div><div class="value">{{…}}</div></div>
+  <div class="item hot"><div class="label">关键点</div><div class="value">{{…}}</div></div>
+  <div class="item"><div class="label">{{字段}}</div><div class="value">{{…}}</div></div>
+</div>
+
+<div class="card">
+  <div class="head"><div class="logo">B</div><div><div class="title">{{名称 B}}</div><div class="subtitle">{{定位}} · {{YYYY-MM}}</div></div></div>
+  <div class="item"><div class="label">定位</div><div class="value">{{…}}</div></div>
+  <div class="item hot"><div class="label">关键点</div><div class="value">{{…}}</div></div>
+  <div class="item"><div class="label">{{字段}}</div><div class="value">{{…}}</div></div>
+</div>
+
+<div class="card">
+  <div class="head"><div class="logo">C</div><div><div class="title">{{名称 C}}</div><div class="subtitle">{{定位}} · {{YYYY-MM}}</div></div></div>
+  <div class="item"><div class="label">定位</div><div class="value">{{…}}</div></div>
+  <div class="item hot"><div class="label">关键点</div><div class="value">{{…}}</div></div>
+  <div class="item"><div class="label">{{字段}}</div><div class="value">{{…}}</div></div>
+</div>
+
+</div>
+</body></html>

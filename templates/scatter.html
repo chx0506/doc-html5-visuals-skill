@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="use-iframe" content="true"><meta name="html-box-height-mode" content="auto">
+<meta name="description" content="{{一句话：散点图的 X/Y/气泡含义}}">
+<title>{{散点图标题}}</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#fff;font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;padding:6px}#c{width:100%;height:520px}</style>
+</head><body>
+<div id="c"></div>
+<script src="https://unpkg.byted-static.com/echarts/5.5.1/dist/echarts.min.js" integrity="sha384-Mx5lkUEQPM1pOJCwFtUICyX45KNojXbkWdYhkKUKsbv391mavbfoAmONbzkgYPzR" crossorigin="anonymous"></script>
+<script>
+var chart=echarts.init(document.getElementById('c'),null,{renderer:'svg'});
+// value: [x, y, size, 'label']
+var g1=[{value:[3,4,16,'对象A'],label:{position:'top'}}];
+var g2=[{value:[7,8,40,'对象B'],label:{position:'right'}}];
+var g3=[{value:[5,3,12,'对象C'],label:{position:'bottom'}}];
+var sizer=function(d){return Math.max(14,d[2]*0.9);};
+var mkSeries=function(name,color,data){
+  return {name:name,type:'scatter',data:data,symbolSize:function(d){return sizer(d);},
+    itemStyle:{color:color,opacity:.75},
+    label:{show:true,formatter:function(p){return p.data[3];},color:'#1f2d3d',fontSize:11,fontWeight:600}};
+};
+chart.setOption({
+  title:{
+    text:'{{结论句}}',
+    subtext:'X＝…，Y＝…，气泡＝…，颜色＝品类｜注明定性/定量口径',
+    left:'center',
+    textStyle:{fontSize:15,color:'#1f2d3d'},
+    subtextStyle:{color:'#94a3b8',fontSize:11}
+  },
+  legend:{bottom:4,data:['品类一','品类二','品类三']},
+  tooltip:{formatter:function(p){var d=p.data;return d[3]+'<br/>X: '+d[0]+'<br/>Y: '+d[1]+'<br/>Size: '+d[2];}},
+  grid:{left:70,right:60,top:80,bottom:60},
+  xAxis:{type:'value',name:'X 轴含义 →',nameLocation:'middle',nameGap:30,min:0,max:10,splitLine:{lineStyle:{type:'dashed',color:'#eef'}}},
+  yAxis:{type:'value',name:'Y 轴含义 ↑',min:0,max:10,splitLine:{lineStyle:{type:'dashed',color:'#eef'}}},
+  series:[
+    mkSeries('品类一','#64748b',g1),
+    mkSeries('品类二','#2f6fed',g2),
+    mkSeries('品类三','#f59e0b',g3)
+  ]
+});
+window.addEventListener('resize',function(){chart.resize();});
+</script></body></html>
